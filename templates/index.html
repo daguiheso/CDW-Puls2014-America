@@ -8,6 +8,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../static/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/estilos.css">
+
 </head>
 <body>
 	<header>
@@ -30,6 +31,11 @@
 		</ul>
 
 	</nav>
+	<form id="formulario" class="formulario">
+		<input type="text" id="titulo" placeholder="Titulo" required>
+		<input type="url" id="url"placeholder="Url"  required>
+		<input type="submit" value="Agregar">
+	</form>
 	<aside>
 		<video width="320" height="240" autoplay controls>
 		  <source src="../static/video/mov.mp4" type="video/mp4">
@@ -178,7 +184,8 @@
 			<strong>Powered by Pony</strong>
 		</p> 
 		<p>- mejorando.la 2014 -</p>
-	</footer>
+	</footer>	
+	<script src="alert.js"></script>
 </body>
 </html>
 
