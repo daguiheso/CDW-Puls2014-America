@@ -9,18 +9,32 @@ var $form = $("#formulario"),
 	$url = $("#url"),
 	$button = $("#mostrar-form"),
 	$list = $("#contenido"),
-	$post = $(".item").first();
+	$primerPost = $(".item").first();
 
+//Para al recargar la pagina, guarde lo que habia en los inputs
+if(localStorage.getItem('autosave')){
+	$titulo.val(sessionStorage.getItem('titulo'));
+	$url.val(sessionStorage.getItem('url'));
+}
+
+
+// JS cada segundo ejecuta esta funcion y esa funcion
+// se va a acordar lo que uno va a estar  tipeando
+var id = setInterval(function(){
+	sessionStorage.setItem('titulo', $titulo.val());
+	sessionStorage.setItem('url', $url.val());
+},1000);
 
 function mostrarFormulario(){
 	$form.slideToggle();
+	$list.slideToggle();
 	return false;
 }
 
 function agregarPost(){
 	var url = $url.val(),
 		titulo = $titulo.val(),
-		$clone = $post.clone();
+		$clone = $primerPost.clone();
 
 	$clone.find(".titulo_item a")
 		.text(titulo)
@@ -29,6 +43,12 @@ function agregarPost(){
 	$clone.hide();
 
 	$list.prepend($clone);
+
+	mostrarFormulario();
+
+	//Limpiando inputs
+	$titulo.val('');
+	$url.val('');
 
 	$clone.fadeIn();
 
