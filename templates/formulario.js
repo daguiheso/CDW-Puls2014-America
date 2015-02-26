@@ -40,7 +40,7 @@ function agregarPost(){
 		.text(titulo)
 		.attr("href", url);
 
-	$clone.hide();
+	// $clone.hide();
 
 	$list.prepend($clone);
 
